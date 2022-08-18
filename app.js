@@ -36,6 +36,11 @@ app.get('/bcode', (req, res) => {
     title: "Bcode"
   })
 })
+app.get('/2bcode', (req, res) => {
+  res.render('2bcode', {
+    title: "2Bcode"
+  })
+})
 
 app.get('/bindornaw', (req, res) => {
   res.render('bindornaw', {

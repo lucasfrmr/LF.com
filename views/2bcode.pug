@@ -20,14 +20,14 @@ block content
                 .field
                 .field
 
-    //- .ui.one.column.doubling.stackable.grid.container 
-    //-     .ui.raised.very.padded.text.container.segment
-    //-         .ui.inverted.segment.centered
-    //-             .field
-    //-             p
-    //-             <iframe id="frame" src=""></iframe>
-    //-             .field
-    //-             p
+    .ui.one.column.doubling.stackable.grid.container 
+        .ui.raised.very.padded.container.segment
+            .ui.inverted.segment.centered
+                .field
+                p
+                <iframe id="frame" src=""></iframe>
+                .field
+                p
 
     script.
         var input = document.getElementById("bcode");
@@ -44,8 +44,8 @@ block content
             }else{
                 var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
             }
-            window.open(url);
-            //- frame.src=url
+            //- window.open(url);
+            frame.src=url
         }
 
         $(".bcode").on('keyup', function (e) {
