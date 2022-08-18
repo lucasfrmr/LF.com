@@ -1,0 +1,14 @@
+extends layout
+
+block content
+
+
+    p When you submit the form, a function is triggered which alerts some text.
+    form(action='/action_page.php' onsubmit='myFunction()')
+    | Enter name: 
+    input(type='text' name='fname')
+    input(type='submit' value='Submit')
+    script.
+        function myFunction() {
+            alert("The form was submitted");
+        }

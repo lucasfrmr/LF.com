@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    .ui.inverted.segment
+        .ui.inverted.form.bcode(name="bcode")
+            .five.fields
+                .field
+                p
+                .field
+                p
+                .field
+                    input(id= 'bcode' autocomplete="off" name="bcode" value="" placeholder="BCODE" oninput='')
+                .inline.field
+                    .ui.submit.button( id="myBtn" onclick='bcode(this.value)') Submit
+                .field
+                p
+                .field
+                p
+    .ui.one.column.doubling.stackable.grid.container 
+        .ui.raised.very.padded.text.container.segment
+            .ui.inverted.segment.centered
+                .field
+                p
+                <iframe id="frame" src=""></iframe>
+                .field
+                p
+
+                script.
+                    var input = document.getElementById("bcode");
+                    input.addEventListener("keypress", function(event) {
+                        if (event.key === "Enter") {
+                            event.preventDefault();
+                            document.getElementById("myBtn").click();
+                        }
+                    });
+                    function bcode(){
+                        var input = document.getElementById("bcode").value;
+                        var url = "https://www.google.com/search?q=" + input;
+                        //- window.location.href = url;
+                        frame.src=url
+                    }
+
+                    $(".bcode").on('keyup', function (e) {
+                        if (e.key === 'Enter' || e.keyCode === 13) {
+                        Console.log("HEYYYY!!!");
+                        }
+                    }); 

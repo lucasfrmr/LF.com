@@ -1,0 +1,44 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(http-equiv='X-UA-Compatible' content='ie=edge')
+		title #{title}
+		script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+		link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js')
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css")
+		link(rel='stylesheet' href='/css/style.css')
+		//- link(rel='stylesheet' href='https://unpkg.com/nes.css/css/nes-core.min.css')
+		script(src='https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js')
+
+
+		//- script(src='')
+	body.Site
+		.Site-content
+			.ui.inverted.five.item.menu
+				a(href="https://lucasfarmer.com")
+					i.large.link.circular.inverted.home.icon
+				a.item(href='/sketches')
+					| Sketches
+				a.item(href='https://game.lucasfarmer.com')
+					| Game
+				a.active.item(href='/bcode')
+					i.large.link.circular.inverted.barcode.icon
+				a.item(href='/about')
+					| About
+				a(href="https://www.youtube.com/channel/UCDaGLN8euSKTt15-BRUKp0A/videos")
+					i.large.link.circular.inverted.youtube.icon
+
+				
+				
+			block content
+		footer.footer
+			.ui.container
+				| Created and maintained by 
+				a(href="https://lucasfarmer.com") Lucas Farmer 
+				| Copywrong &copy; 2022.
+			script(src='/js/main.js')
+			//- script(src='/js/sketch.js')
+			//- script(src='/js/vehicle.js')
+	//- include includes/loginRegisterModal
