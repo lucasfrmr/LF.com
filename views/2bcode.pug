@@ -29,30 +29,30 @@ block content
     //-             .field
     //-             p
 
-                script.
-                    var input = document.getElementById("bcode");
-                    input.addEventListener("keypress", function(event) {
-                        if (event.key === "Enter") {
-                            event.preventDefault();
-                            document.getElementById("myBtn").click();
-                        }
-                    });
-                    function bcode(){
-                        var input = document.getElementById("bcode").value;
-                        if (document.getElementById("radio1").checked){
-                            var url = "https://www.google.com/search?q=" + input;
-                        }else{
-                            var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
-                        }
-                        window.open(url);
-                        //- frame.src=url
-                    }
+    script.
+        var input = document.getElementById("bcode");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("myBtn").click();
+            }
+        });
+        function bcode(){
+            var input = document.getElementById("bcode").value;
+            if (document.getElementById("radio1").checked){
+                var url = "https://www.google.com/search?q=" + input;
+            }else{
+                var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
+            }
+            window.open(url);
+            //- frame.src=url
+        }
 
-                    $(".bcode").on('keyup', function (e) {
-                        if (e.key === 'Enter' || e.keyCode === 13) {
-                        Console.log("HEYYYY!!!");
-                        }
-                    }); 
+        $(".bcode").on('keyup', function (e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+            Console.log("HEYYYY!!!");
+            }
+        }); 
                     //- function radio1 () {
                     //-       if(inputs[i].checked == false) {
                     //-             inputs[i].checked = true; 
