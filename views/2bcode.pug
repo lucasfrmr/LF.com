@@ -8,6 +8,9 @@ block content
                 p
                 .field
                 p
+                .ui.checkbox
+                    input(type='checkbox' id='radio1' onchange='validate()' checked)
+                    label Google or naw.
                 .field
                     input(id= 'bcode' autocomplete="off" name="bcode" value="" placeholder="BCODE" oninput='')
                 .inline.field
@@ -15,15 +18,16 @@ block content
                 .field
                 p
                 .field
-                p
-    .ui.one.column.doubling.stackable.grid.container 
-        .ui.raised.very.padded.text.container.segment
-            .ui.inverted.segment.centered
                 .field
-                p
-                <iframe id="frame" src=""></iframe>
-                .field
-                p
+
+    //- .ui.one.column.doubling.stackable.grid.container 
+    //-     .ui.raised.very.padded.text.container.segment
+    //-         .ui.inverted.segment.centered
+    //-             .field
+    //-             p
+    //-             <iframe id="frame" src=""></iframe>
+    //-             .field
+    //-             p
 
                 script.
                     var input = document.getElementById("bcode");
@@ -35,8 +39,12 @@ block content
                     });
                     function bcode(){
                         var input = document.getElementById("bcode").value;
-                        var url = "https://www.google.com/search?q=" + input;
-                        window.location.href = url;
+                        if (document.getElementById("radio1").checked){
+                            var url = "https://www.google.com/search?q=" + input;
+                        }else{
+                            var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
+                        }
+                        window.open(url);
                         //- frame.src=url
                     }
 
@@ -45,3 +53,21 @@ block content
                         Console.log("HEYYYY!!!");
                         }
                     }); 
+                    //- function radio1 () {
+                    //-       if(inputs[i].checked == false) {
+                    //-             inputs[i].checked = true; 
+                    //-         }
+                    //-         else {
+                    //-             if(inputs[i].checked == true) {
+                    //-                 inputs[i].checked = false; 
+                    //-             }   
+                    //-         })
+                    //- }
+                    //- function validate {
+                    //-     var radio = document.getElementById("radio1");
+                    //-     if (radio.checked) {
+                    //-         alert("checked");
+                    //-     } else {
+                    //-         alert("You didn't check it! Let me check it for you.");
+                    //-     }
+                    //- }
