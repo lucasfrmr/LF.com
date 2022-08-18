@@ -36,8 +36,8 @@ block content
                     function bcode(){
                         var input = document.getElementById("bcode").value;
                         var url = "https://www.google.com/search?q=" + input;
-                        //- window.location.href = url;
-                        frame.src=url
+                        window.location.href = url;
+                        //- frame.src=url
                     }
 
                     $(".bcode").on('keyup', function (e) {
