@@ -32,8 +32,14 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/bcode', (req, res) => {
-  res.render('2bcode', {
+  res.render('bcode', {
     title: "Bcode"
+  })
+})
+
+app.get('/bindornaw', (req, res) => {
+  res.render('bindornaw', {
+    title: "Bind or naw"
   })
 })
 

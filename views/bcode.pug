@@ -1,72 +1,45 @@
 extends layout
 
 block content
-	.ui.container
-		.ui.segment
-			//- .h1(id="girth") Girth
-			//- .h1 
-			form#myForm(name="myForm")
-				fieldset
-					// .ui.grid
-					.ui.form
-						.fields
-							.field
-								label Length
-								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="length" value="" placeholder="Length" oninput='formCalc1()')
-							.field
-								label Width
-								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="width" value="" placeholder="Width" oninput='')
-							.field
-								label Height
-								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="height" value="" placeholder="Height" oninput='')
-							.field
-								label Weight
-								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="weigth" value="" placeholder="Weight" oninput='')
-			.ui.container
-				.ui.segment
-					.ui.form
-						.fields
-							.field
-								label Girth
-								input(id="girth" autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="girth" value="null" placeholder="Girth" oninput='')
-				script.
-					function formCalc1() {
-						var length = $(this).val();
-						var width = $(this).val();
-						var height = $(this).val();
-						var weight = $(this).val();
-							console.log(girth);
-							document.getElementById("girth").innerHTML += girth;
-						//- if (length > width && length > height){
-						//- 	var girth = (width + height) * 2;	
-						//- 	document.getElementById("girth").innerHTML += girth;
-						//- }
-					}
+    .ui.inverted.segment
+        .ui.inverted.form.bcode(name="bcode")
+            .five.fields
+                .field
+                p
+                .field
+                p
+                .ui.checkbox
+                    input(type='checkbox' id='radio1' onchange='validate()' checked)
+                    label Google or naw.
+                .field
+                    input(id= 'bcode' autocomplete="off" name="bcode" value="" placeholder="BCODE" oninput='')
+                .inline.field
+                    .ui.submit.button( id="myBtn" onclick='bcode(this.value)') Submit
+                .field
+                p
+                .field
+                .field
+    script.
+        var input = document.getElementById("bcode");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("myBtn").click();
+            }
+        });
+        function bcode(){
+            var input = document.getElementById("bcode").value;
+            if (document.getElementById("radio1").checked){
+                var url = "https://www.google.com/search?q=" + input;
+            }else{
+                var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
+            }
+            window.open(url);
+            //- frame.src=url
+        }
 
-
-
-
-					//- function formCalc1(){
-					//- 	var a = document.forms[0][1].value;
-					//- 	var b = document.forms[0][2].value;
-					//- 	var c = document.forms[0][3].value;
-					//- 	var z = a + b;
-					//- 	z = z*2;
-					//- 	console.log(z);
-					//- 	document.getElementById("girth").innerHTML += z;
-					//- 	//- document.forms[1][0].value = z;
-					//- }
-						//- var cubicmeters = barrels * 6.29;
-						//- document.getElementsById("girth").innerText = length;
-						//- document.forms[0][2].value = cubicmeters;	
-					//- function formCalc2(){
-					//- 	var cubicmeters = document.forms[0][2].value;
-					//- 	var barrels = cubicmeters / 6.29;
-					//- 	document.forms[0][1].value = barrels;
-					//- }
-					
-					//- function test(){
-					//- 	console.log('Hello');
-					//- }
-
-	
+        $(".bcode").on('keyup', function (e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+            Console.log("HEYYYY!!!");
+            }
+        }); 

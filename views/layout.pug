@@ -5,15 +5,12 @@ html
 		meta(name='viewport' content='width=device-width, initial-scale=1.0')
 		meta(http-equiv='X-UA-Compatible' content='ie=edge')
 		title #{title}
+		link(rel='shortcut icon' type='image/x-icon' href='/img/favicon.ico')
 		script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
 		link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js')
 		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css")
 		link(rel='stylesheet' href='/css/style.css')
-		//- link(rel='stylesheet' href='https://unpkg.com/nes.css/css/nes-core.min.css')
 		script(src='https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js')
-
-
-		//- script(src='')
 	body.Site
 		.Site-content
 			.ui.inverted.five.item.menu
@@ -29,9 +26,6 @@ html
 					| About
 				a(href="https://www.youtube.com/channel/UCDaGLN8euSKTt15-BRUKp0A/videos")
 					i.large.link.circular.inverted.youtube.icon
-
-				
-				
 			block content
 		footer.footer
 			.ui.container
