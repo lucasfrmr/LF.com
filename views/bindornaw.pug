@@ -3,20 +3,14 @@ extends layout
 block content
 	.ui.container
 		.ui.segment
-			//- .h1(id="girth") Girth
-			//- .h1 
 			form#myForm(name="myForm")
 				fieldset
 					// .ui.grid
 					.ui.form
 						.fields
 							.field
-								.ui.checkbox
-									input(type='checkbox' id='radio1' onchange='validate()')
-									label Tv.
-							.field
 								label Length
-								input#length(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="integer" value="" placeholder="Length" style {color:red;} oninput='formCalc2()')
+								input#length(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="length" value="" placeholder="Length" oninput='formCalc2()')
 							.field
 								label Width
 								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="width" value="" placeholder="Width" oninput='formCalc2()')
@@ -26,29 +20,20 @@ block content
 							.field
 								label Weight
 								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="weigth" value="" placeholder="Weight" oninput='')
+							.field
+								.ui.checkbox
+									input(type='checkbox' id='radio1' onchange='validate()')
+									label Tv.
 			.ui.card
 				.content
 					.description
 					p
-						//- .ui.statistic
-						//- 	.value#girth
-						//- 		| 
-						//- 	.label
-						//- 		| Girth
-						
 						.statistic
 							.text.value.centered#girth
 							| 
 						.label
 							| Girth
 				script.
-					//- function formCalc2(){
-					//- 	var x = document.forms[0][1].value*2;
-					//- 	var y = document.forms[0][2].value*2;
-					//- 	var z = document.forms[0][3].value*2;
-					//- 	var z = x + y;
-					//- 	document.getElementById("girth").innerHTML=z;
-					//- }
 					function formCalc2(){
 						
 						let x = document.forms[0][1].value;
@@ -60,75 +45,13 @@ block content
 						console.log("Max Number is: " + bigNum);
 
 						if(x && y && z){
-							inputCount = 3;
 							var smNums = parseFloat(x) + parseFloat(y) + parseFloat(z) - parseFloat(bigNum);
 							var girth = parseFloat(smNums) * 2;
 							document.getElementById("girth").innerHTML=girth;
-							console.log("Girth is: " + girth);
+							console.log("Girth is: " + parseFloat(girth));
 						}else{
 							girth = 0;
 							document.getElementById("girth").innerHTML=girth;
 							console.log("Nope");
 						}
-
-
-						//- Need to set up modal that opens at page load.
-						//- modal 1 - 
-						//- 	bcode scan with tvlength input or not a tv button
-						//- 	if (tvLength => 40) {
-						//- 		Nope 
-						//- 	}else{
-						//- 		modal #2
-						//- 	}
-
-						//- modal #2 
-						//- 	ask weight
-						//- 	if (weigth =>50){
-						//- 		Modal #3
-						//- 	}else{
-						//- 		nope
-						//- 	}
-						//- modal # 3
-						//- 	Ask Dims 
-						//- 	if (dims ){
-						//- 		yup
-						//- 	}else{
-						//- 		nope
-						//- 	}
-
-
-
-
-
-
-
-
-
-
-						
-						//- console.log(document.forms[0][1].value);
-						//- if (document.forms[0][1].value){
-						//- 	console.log("yeee");
-						//- }else{
-						//- 	console.log("nope");
-						//- }
-						
-						//- document.getElementById("girth").innerHTML=z;
-
-						//- if(!x){
-						//- 	document.getElementById("length").classList.add('error');
-						//- }
-
-						//- if(x == Math.max(x, y, z)){
-						//- 	console.log("X");
-						//- }else if(y == Math.max(x, y, z)){
-						//- 	console.log("Y");
-						//- }else if(z == Math.max(x, y, z)){
-						//- 	console.log("Z");
-						//- }
-					}
-
-					
-					
-
-			
+					}	
