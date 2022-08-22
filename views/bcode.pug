@@ -12,9 +12,9 @@ block content
                     input(type='checkbox' id='radio1' onchange='validate()' checked)
                     label Google or naw.
                 .field
-                    input(id= 'bcode' autocomplete="off" name="bcode" value="" placeholder="BCODE" oninput='')
-                .inline.field
-                    .ui.submit.button( id="myBtn" onclick='bcode(this.value)') Submit
+                    .ui.action.input
+                        input(id= 'bcode' autocomplete="off" name="bcode" value="" placeholder="BCODE" oninput='')
+                        button.ui.button( id="myBtn" onclick='bcode(this.value)') Submit
                 .field
                 p.TextScramble
                 .field
