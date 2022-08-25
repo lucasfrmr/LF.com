@@ -53,50 +53,43 @@ app.get('/2bcode', (req, res) => {
 })
 // const pdata = element.text();
 
-  (async () => {
-    const browser = await puppeteer.launch({
-        headless: true,
-    });
-    const page = await browser.newPage();
-    await page.goto("https://amazon-asin.com/asincheck/?product_id=B09YRJLNW1");
+  // (async () => {
+  //   const browser = await puppeteer.launch({
+  //       headless: true,
+  //   });
+  //   const page = await browser.newPage();
+  //   await page.goto("https://amazon-asin.com/asincheck/?product_id=B09YRJLNW1");
 
-    await page.screenshot({ path: "image1.png"});
+  //   await page.screenshot({ path: "image1.png"});
 
-    const pageData= await page.evaluate(() => {
-        return {
-            html: document.documentElement.innerHTML,
-            width: document.documentElement.clientWidth,
-            height: document.documentElement.clientHeight,
-        };
+  //   const pageData= await page.evaluate(() => {
+  //       return {
+  //           html: document.documentElement.innerHTML,
+  //           width: document.documentElement.clientWidth,
+  //           height: document.documentElement.clientHeight,
+  //       };
 
-    });
+  //   });
     
-    // console.log(pageData);
+  //   // console.log(pageData);
 
-    const $ = cheerio.load(pageData.html);
-    const element = $(".ng-binding")
-    console.log(element.text());
-    // pdata = element.text();
-    return element.text();
-    await browser.close();
-  })();
+  //   const $ = cheerio.load(pageData.html);
+  //   const element = $(".ng-binding")
+  //   console.log(element.text());
+  //   // pdata = element.text();
+  //   return element.text();
+  //   await browser.close();
+  // })();
 
 
 
 app.get('/bindornaw',(req, res) => {
-
   res.render('bindornaw', {
     title: "Bind or naw",
     data: pdata()
   })
   console.log(pdata);
 })
-
-
-
-// Route Files
-// let sketches = require('./routes/sketches');
-// app.use('/sketches', sketches);
 
 
 app.listen(app.get('port'), () => {
