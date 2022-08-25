@@ -20,13 +20,14 @@ html
 					| Sketches
 				a.item(href='https://game.lucasfarmer.com')
 					| Game
-				a.item(href='/bcode')
+				a.item(href='/bindornaw')
 					i.large.link.circular.inverted.barcode.icon
 				a.item(href='/about')
 					| About
 				a(href="https://www.youtube.com/channel/UCDaGLN8euSKTt15-BRUKp0A/videos")
 					i.large.link.circular.inverted.youtube.icon
-				i.large.link.circular.inverted.privacy.icon
+				a(href="#")
+					i.large.link.window.restore.outline.icon
 			block content
 		footer.footer
 			.ui.container
@@ -42,7 +43,7 @@ html
 				//- 	.modal('show')
 				//- ;
 				$(document).ready(function(){
-					$('.privacy.icon').click(function(){
+					$('.outline.icon').click(function(){
 						$('.ui.basic.modal').modal({
 							centered: true
 						}).modal('show');
