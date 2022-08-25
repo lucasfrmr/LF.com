@@ -70,6 +70,7 @@ app.get('/2bcode', (req, res) => {
         };
 
     });
+    
     // console.log(pageData);
 
     const $ = cheerio.load(pageData.html);
