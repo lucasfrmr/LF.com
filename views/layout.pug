@@ -14,18 +14,19 @@ html
 	body.Site
 		.Site-content
 			.ui.inverted.five.item.menu
-				a(href="https://lucasfarmer.com")
+				a(href="/")
 					i.large.link.circular.inverted.home.icon
 				a.item(href='/sketches')
 					| Sketches
 				a.item(href='https://game.lucasfarmer.com')
 					| Game
-				a.active.item(href='/bcode')
+				a.item(href='/bcode')
 					i.large.link.circular.inverted.barcode.icon
 				a.item(href='/about')
 					| About
 				a(href="https://www.youtube.com/channel/UCDaGLN8euSKTt15-BRUKp0A/videos")
 					i.large.link.circular.inverted.youtube.icon
+				i.large.link.circular.inverted.privacy.icon
 			block content
 		footer.footer
 			.ui.container
@@ -34,6 +35,16 @@ html
 				| Copywrong &copy; 2022.
 			script(src='/js/main.js')
 			//- script(src='/js/randomtext.js')
-			//- script(src='/js/sketch.js')
+			//- script(src='/js/s98Zxcvb/etch.js')
 			//- script(src='/js/vehicle.js')
-	//- include includes/loginRegisterModal
+			script.
+				//- $('.ui.modal')
+				//- 	.modal('show')
+				//- ;
+				$(document).ready(function(){
+					$('.privacy.icon').click(function(){
+						$('.ui.basic.modal').modal({
+							centered: true
+						}).modal('show');
+						});
+					});

@@ -17,23 +17,82 @@ block content
 							.field
 								label Height
 								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="height" value="" placeholder="Height" oninput='formCalc2()')
-							.field
+							.field.ui.input
 								label Weight
-								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="weigth" value="" placeholder="Weight" oninput='')
+									input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="weigth" value="" placeholder="Weight" oninput='')
 							.field
 								.ui.checkbox
 									input(type='checkbox' id='radio1' onchange='validate()')
 									label Tv.
+								//- .ui.error.message			
 			.ui.card
 				.content
 					.description
-					p
-						.statistic
-							.text.value.centered#girth
+						p
+						.ui.huge.ahorizontal.statistic
+							.text.value.centered#girth(value="0")
 							| 
-						.label
+						.label.large
 							| Girth
+		.rightcard
+			.ui.card
+				.content
+					.description
+						p
+						.ui.huge.ahorizontal.statistic
+							.text.value.centered(value="Nopes")
+							| 
+						.label.large
+							| #{pdata}
+		
+		include includes/bcodeModal
 				script.
+					//- if($( ".ui.input" )<40){
+					//- 	$( ".ui.input" ).last().addClass( "error" );
+					//- }
+
+					$('.ui.form').form({
+							fields: {
+								length: {
+									identifier: 'length',
+									rules: [
+									{
+										type   : 'empty',
+										prompt : 'Please enter the length'
+									}
+									]
+								},
+							width: {
+								identifier: 'width',
+								rules: [
+								{
+									type   : 'empty',
+									prompt : 'Please enter the width'
+								}
+								]
+							},
+							height: {
+								identifier: 'height',
+								rules: [
+								{
+									type   : 'empty',
+									prompt : 'Please enter the height'
+								}
+								]
+							},
+							weigth: {
+								identifier: 'weight',
+								rules: [
+								{
+									type   : 'empty',
+									prompt : 'Please enter the weight'
+								}
+								]
+							}
+							}
+						})
+						;
+
 					function formCalc2(){
 						
 						let x = document.forms[0][1].value;
@@ -47,6 +106,7 @@ block content
 						if(x && y && z){
 							var smNums = parseFloat(x) + parseFloat(y) + parseFloat(z) - parseFloat(bigNum);
 							var girth = parseFloat(smNums) * 2;
+							girth = girth + bigNum;
 							document.getElementById("girth").innerHTML=girth;
 							console.log("Girth is: " + parseFloat(girth));
 						}else{
