@@ -1,45 +1,48 @@
 extends layout
 
 block content
-    .ui.inverted.header
-        .ui.inverted.form.bcode(name="bcode")
-            .five.fields
-                .field
-                p
-                .field
-                p
-                .ui.checkbox
-                    input(type='checkbox' id='radio1' onchange='validate()' checked)
-                    label Google or naw.
-                .field
-                    .ui.action.input
-                        input(id= 'bcode' autocomplete="off" name="bcode" value="" placeholder="BCODE" oninput='')
-                        button.ui.button( id="myBtn" onclick='bcode(this.value)') Submit
-                .field
-                p.TextScramble
-                .field
-                .field
-    script.
-        var input = document.getElementById("bcode");
-        input.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                document.getElementById("myBtn").click();
-            }
-        });
-        function bcode(){
-            var input = document.getElementById("bcode").value;
-            if (document.getElementById("radio1").checked){
-                var url = "https://www.google.com/search?q=" + input;
-            }else{
-                var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
-            }
-            window.open(url);
-            //- frame.src=url
-        }
+    //- .ui.inverted.header
+    //-     .ui.inverted.form.bcode(name="bcode" action="/login"  method="POST")
+    //-         .five.fields
+    //-             .field
+    //-             p
+    //-             .field
+    //-             p
+    //-             .field
+    //-                 .ui.action.input(name="bcode" action="/login"  method="POST")
+    //-                     input(autocomplete="off" name="asin" value="" placeholder="BCODE" oninput='')
+    //-                     button.ui.button( id="myBtn" onclick='submit') Submit
+    //-             .field
+    //-             p.TextScramble
+    //-             .field
+    //-             .field
+    //- script.
+    //-     var input = document.getElementById("bcode");
+    //-     input.addEventListener("keypress", function(event) {
+    //-         if (event.key === "Enter") {
+    //-             event.preventDefault();
+    //-             document.getElementById("myBtn").click();
+    //-         }
+    //-     });
+
+
+
+        //- function bcode(){
+        //-     var input = document.getElementById("bcode").value;
+        //-     if (document.getElementById("radio1").checked){
+        //-         var url = "https://www.google.com/search?q=" + input;
+        //-     }else{
+        //-         var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
+        //-     }
+        //-     window.open(url);
+        //-     //- frame.src=url
+        //- }
 
         $(".bcode").on('keyup', function (e) {
             if (e.key === 'Enter' || e.keyCode === 13) {
             Console.log("HEYYYY!!!");
             }
         }); 
+    form(action= "/login" method="post")
+        input(type="text")
+        button(type="submit")

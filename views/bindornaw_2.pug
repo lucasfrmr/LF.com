@@ -2,7 +2,7 @@ extends layout
 
 block content
 	.ui.inverted.header
-		.ui.inverted.form.bcode(name="bcode")
+		.ui.inverted.form.bcode(action="/login" method="POST" name="bcode")
 			.five.fields
 				.field
 				p
@@ -28,16 +28,16 @@ block content
 						.fields
 							.field
 								label Length
-								input#length(autocomplete="off" type="number" pattern="[0-9]*" inputmode="" name="length" value=`${data[3]}` placeholder="Length" oninput='formCalc2()')
+								input#length(autocomplete="off" type="number" pattern="[0-9]*" inputmode="" name="length" value=`${data[1]}` placeholder="Length" oninput='formCalc2()')
 							.field
 								label Width
-								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="width" value=`${data[5]}` placeholder="Width" oninput='formCalc2()')
+								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="width" value=`${data[3]}` placeholder="Width" oninput='formCalc2()')
 							.field
 								label Height
-								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="height" value=`${data[7]}` placeholder="Height" oninput='formCalc2()')
+								input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="height" value=`${data[5]}` placeholder="Height" oninput='formCalc2()')
 							.field.ui.input
 								label Weight
-									input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="weigth" value=`${data[9]}` placeholder="Weight" oninput='')
+									input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="weigth" value=`${data[11]}` placeholder="Weight" oninput='')
 							.field
 								.ui.checkbox
 									input(type='checkbox' id='radio1' onchange='validate()')
@@ -64,53 +64,14 @@ block content
 							| https://www.amazon.com/dp/B09YRJLNW1
 		
 		include includes/bcodeModal
+
 				script.
-				  	
+
+
 					//- if($( ".ui.input" )<40){
 					//- 	$( ".ui.input" ).last().addClass( "error" );
 					//- }
 
-					$('.ui.form').form({
-							fields: {
-								length: {
-									identifier: 'length',
-									rules: [
-									{
-										type   : 'empty',
-										prompt : 'Please enter the length'
-									}
-									]
-								},
-							width: {
-								identifier: 'width',
-								rules: [
-								{
-									type   : 'empty',
-									prompt : 'Please enter the width'
-								}
-								]
-							},
-							height: {
-								identifier: 'height',
-								rules: [
-								{
-									type   : 'empty',
-									prompt : 'Please enter the height'
-								}
-								]
-							},
-							weigth: {
-								identifier: 'weight',
-								rules: [
-								{
-									type   : 'empty',
-									prompt : 'Please enter the weight'
-								}
-								]
-							}
-							}
-						})
-						;
 
 					function formCalc2(){
 						
@@ -136,27 +97,47 @@ block content
 						}
 					}	
 					formCalc2()
-				script.
-					var input = document.getElementById("bcode");
-					input.addEventListener("keypress", function(event) {
-						if (event.key === "Enter") {
-							event.preventDefault();
-							document.getElementById("myBtn").click();
-						}
-					});
-					function bcode(){
-						var input = document.getElementById("bcode").value;
-						if (document.getElementById("radio1").checked){
-							var url = "https://www.google.com/search?q=" + input;
-						}else{
-							var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
-						}
-						window.open(url);
-						//- frame.src=url
-					}
 
-					$(".bcode").on('keyup', function (e) {
-						if (e.key === 'Enter' || e.keyCode === 13) {
-						Console.log("HEYYYY!!!");
-						}
-					}); 
+
+				script.
+					//- var input = document.getElementById("bcode");
+					//- input.addEventListener("keypress", function(event) {
+					//- 	if (event.key === "Enter") {
+					//- 		event.preventDefault();
+					//- 		document.getElementById("myBtn").click();
+					//- 	}
+					//- });
+
+					//- $(".bcode").on('keyup', function (e) {
+					//- 	if (e.key === 'Enter' || e.keyCode === 13) {
+					//- 	Console.log("HEYYYY!!!");
+					//- 	}
+					//- });
+
+						
+						
+						//- function bcode(){
+						//- 	var input = document.getElementById("bcode").value;
+						//- 	if (document.getElementById("radio1").checked){
+						//- 		var url = "https://www.amazon.com/dp/" + input;
+						//- 	}else{
+						//- 		var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
+						//- 	}
+						//- 	window.open(url);
+						//- 	//- frame.src=url
+						//- }
+
+
+//- just a test Function w/switch logic
+					//- function bcode(){
+					//- 	var input = document.getElementById("bcode").value;
+					//- 	if (document.getElementById("radio1").checked){
+					//- 		var url = "https://www.amazon.com/dp/" + input;
+					//- 	}else{
+					//- 		var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
+					//- 	}
+					//- 	window.open(url);
+					//- 	//- frame.src=url
+					//- }
+					
+					

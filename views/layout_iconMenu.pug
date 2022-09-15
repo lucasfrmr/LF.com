@@ -13,23 +13,29 @@ html
 		script(src='https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js')
 	body.Site
 		.Site-content
-			.ui.inverted.six.item.menu
-				a(href="/")
-					i.large.link.circular.inverted.home.loading.icon
+			.ui.labeled.invered.icon.menu.centered
+				a.item(href="/")
+					i.home.icon
+					|     Home
 				a.item(href='/sketches')
-					| Sketches
+					i.code.icon
+					|     Sketches
 				a.item(href='https://game.lucasfarmer.com')
-					| Game
-				a.item(href='/bindornaw')
-					i.large.link.inverted.barcode.icon
+					i.gamepad.icon
+					|     Game
 				a.item(href='/about')
-					| About
-				a(href="https://www.youtube.com/channel/UCDaGLN8euSKTt15-BRUKp0A/videos")
-					i.large.link.circular.inverted.youtube.loading.icon
-			.ui.grid
-				.row.centered
-					.ui.inverted.segment
-						p(style="text-align:center") Your IP address is: #{userIp}
+					i.hand.peace.icon
+					|     About
+				a.item
+					i.video.play.icon
+					|     Videos
+				.ui.grid
+					.row.centered
+						.three.wide.column
+						.three.wide.column
+							.ui.inverted.segment
+								p(style="text-align:center") Your IP address is: #{userIp}
+						.three.wide.column
 			block content
 		.ui.inverted.segment
 			footer.footer
@@ -38,17 +44,3 @@ html
 					a(href="https://lucasfarmer.com") Lucas Farmer 
 					| Copywrong &copy; 2022.
 			script(src='/js/main.js')
-			//- script(src='/js/randomtext.js')
-			//- script(src='/js/s98Zxcvb/etch.js')
-			//- script(src='/js/vehicle.js')
-			script.
-				//- $('.ui.modal')
-				//- 	.modal('show')
-				//- ;
-				$(document).ready(function(){
-					$('.outline.icon').click(function(){
-						$('.ui.basic.modal').modal({
-							centered: true
-						}).modal('show');
-						});
-					});

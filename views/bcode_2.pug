@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    form( name="asin" action= "/login" method="post")
+        .ui.action.input
+            input(type='text' placeholder='Search...')
+            button.ui.icon.button(type="submit")
+                i.search.icon

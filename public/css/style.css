@@ -92,7 +92,7 @@ h1 {
   flex: 1;
 }
 .footer {
-  font-size: 1.5vw;
+  font-size: 1.5vh;
   text-align: center;
   color: white;
 }
@@ -113,4 +113,6 @@ h1 {
 .menu {
   text-align: center;
 }
-
+.ipseg {
+  margin-top:0.5em
+}
