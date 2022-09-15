@@ -1,0 +1,74 @@
+extends layout
+
+block content
+    .ui.segment.centered
+        form.ui.form#myForm(name="myForm" onload="")
+            .fields
+                .ui.grid.centered
+                    .row
+                        .four.wide.column
+                            .field
+                                label Input:
+                                input#input(autocomplete="off" type="text" pattern="" inputmode="" name="input" value="" placeholder="Input" oninput='formParser()')
+                        .four.wide.column
+                            .field
+                                label Girff:
+                                input#input(autocomplete="off" type="text" pattern="" inputmode="" name="girff" value="" placeholder="Girff" oninput='formParser()')
+                    .row
+                        .three.wide.column
+                            .field
+                                label Length:
+                                input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="length" value="" placeholder="Length" oninput='')
+                        .three.wide.column
+                            .field
+                                label Width:
+                                input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="width" value="" placeholder="Width" oninput='')
+                        .three.wide.column
+                            .field
+                                label Height:
+                                input(autocomplete="off" type="number" pattern="[0-9]*" inputmode="numeric" name="height" value="" placeholder="Height" oninput='')
+    img(src="https://giphy.com/gifs/skittles-yes-winning-heck-cI45LEPRoFQhLVq7AB", alt="")
+    .ui.segment.centered
+
+        script.
+            function formParser(){
+                var inputString = document.getElementById("input").value;
+                const inputArray = inputString.split(" x")
+
+                for(var i = 0; i < inputArray.length; i++){
+                    console.log(inputArray[i]);
+                    //- inputArray[i] = inputArray[i].replace(/\D/g,'')
+
+                }
+
+                let l = inputArray[0];
+                let w = inputArray[1];
+                let h = inputArray[2];
+                var bigNum = Math.max(l, w, h);
+                //- console.log(inputArray[2]);
+
+                if(l && w && h){
+                    var smNums = parseFloat(l) + parseFloat(w) + parseFloat(h) - parseFloat(bigNum);
+                    var girth = parseFloat(smNums) * 2;
+                    const toFixed = (n, fixed) => ~~(Math.pow(10, fixed) * n) / Math.pow(10, fixed);
+                    girth = toFixed(girth + bigNum, 2);
+                    //- document.getElementById("girth").innerHTML=girth;
+                    console.log("Girth is: " + parseFloat(girth));
+                }else{
+                    girth = 0;
+                }
+
+                document.getElementsByName("length")[0].value = inputArray[0];
+                document.getElementsByName("width")[0].value = inputArray[1];
+                document.getElementsByName("height")[0].value = inputArray[2];
+                document.getElementsByName("girff")[0].value = girth;
+                //- console.log(inputArray[1]);
+            };
+            
+
+        //- script.
+        //-     $(".className").on('keyup', function (e) {
+        //-         if (e.key === 'Enter' || e.keyCode === 13) {
+        //-             console.log("HEYYYY!!!");
+        //-         }
+        //-     }); 
