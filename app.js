@@ -34,41 +34,48 @@ app.get('/', (req, res) => {
 })
 
 app.get('/sketches', (req, res) => {
+  const ipAddress = req.socket.remoteAddress;
   res.render('sketches', {
     title: "sketches"
   })
 })
 
 app.get('/about', (req, res) => {
+  const ipAddress = req.socket.remoteAddress;
   res.render('about', {
     title: "About"
   })
 })
 
 app.get('/bcode', (req, res) => {
+  const ipAddress = req.socket.remoteAddress;
   res.render('bcode', {
     title: "Bcode"
   })
 })
 app.get('/2bcode', (req, res) => {
+  const ipAddress = req.socket.remoteAddress;
   res.render('2bcode', {
     title: "2Bcode"
   })
 })
 
 app.get('/bcode_2', (req, res) => {
+  const ipAddress = req.socket.remoteAddress;
   res.render('bcode_2', {
     title: "Bcode_2"
   })
 })
 
 app.get('/bindornaw', (req, res) => {
+  const ipAddress = req.socket.remoteAddress;
   res.render('bindornaw', {
     title: "bindornaw"
   })
 })
 
 app.get('/inputParser', (req, res) => {
+  const ipAddress = req.socket.remoteAddress;
   res.render('inputParser', {
     title: "inputParser"
   })
