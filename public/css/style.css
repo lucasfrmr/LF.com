@@ -80,9 +80,9 @@ h1 {
   right: 2em;
   text-align: right;
 }
-/*.menu {
+.menu {
 	font-family: 'Syncopate';font-size: 15px;font-weight:800;
-}*/
+}
 .Site {
   display: flex;
   min-height: 100vh;

@@ -17,6 +17,9 @@ app.use(express.json())
 app.locals.pretty = true
 app.disable('x-powered-by')
 
+const MongoClient = require('mongodb').MongoClient
+const mongodb = 'mongodb://127.0.0.1:27017/LF/userdata'
+
 // create application/x-www-form-urlencoded parser
 // var urlencodedParser = bodyParser.urlencoded({ extended: false })
 // create application/json parser
@@ -27,23 +30,51 @@ app.disable('x-powered-by')
 
 app.get('/', (req, res) => {
   const ipAddress = req.socket.remoteAddress;
+  // console.log(JSON.stringify(req.headers));
+  MongoClient.connect(mongodb.substring(0, mongodb.lastIndexOf('/')), {useUnifiedTopology: true}, (error, db) => {
+    if (error) throw error
+    db.db(mongodb.split('/')[3]).collection(mongodb.split('/')[4]).insertOne({headers: req.headers, date: Date.now()}), (error, response) => {
+      console.log("connected");
+      if (error) throw error
+      db.close()
+    }
+  })
+  console.log(ipAddress);
   res.render('index', {
     title:'LF',
     userIp: ipAddress
+    // headers: response,
+    // date: date
+  })
+})
+
+app.get('/userdata', (req, res) => {
+  MongoClient.connect(mongodb.substring(0, mongodb.lastIndexOf('/')), {useUnifiedTopology: true}, (error, db) => {
+    if (error) throw error
+    db.db(mongodb.split('/')[3]).collection(mongodb.split('/')[4]).find({}).sort({date: -1}).limit(64).toArray((error, result) => {
+      if (error) throw error
+      res.render('userdata', {
+        title:'LF',
+        userdata: result
+      })
+      db.close()
+    })
   })
 })
 
 app.get('/sketches', (req, res) => {
   const ipAddress = req.socket.remoteAddress;
   res.render('sketches', {
-    title: "sketches"
+    title: "sketches",
+    userIp: ipAddress
   })
 })
 
 app.get('/about', (req, res) => {
-  const ipAddress = req.socket.remoteAddress;
+  const ipAddress = req.socket['x-forwarded-for'];
   res.render('about', {
-    title: "About"
+    title: "About",
+    userIp: ipAddress
   })
 })
 
@@ -56,28 +87,32 @@ app.get('/bcode', (req, res) => {
 app.get('/2bcode', (req, res) => {
   const ipAddress = req.socket.remoteAddress;
   res.render('2bcode', {
-    title: "2Bcode"
+    title: "2Bcode",
+    userIp: ipAddress
   })
 })
 
 app.get('/bcode_2', (req, res) => {
   const ipAddress = req.socket.remoteAddress;
   res.render('bcode_2', {
-    title: "Bcode_2"
+    title: "Bcode_2",
+    userIp: ipAddress
   })
 })
 
 app.get('/bindornaw', (req, res) => {
   const ipAddress = req.socket.remoteAddress;
   res.render('bindornaw', {
-    title: "bindornaw"
+    title: "bindornaw",
+    userIp: ipAddress
   })
 })
 
 app.get('/inputParser', (req, res) => {
   const ipAddress = req.socket.remoteAddress;
   res.render('inputParser', {
-    title: "inputParser"
+    title: "inputParser",
+    userIp: ipAddress
   })
 })
 

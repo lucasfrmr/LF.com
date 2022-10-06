@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    table#myTable.ui.celled.table
+        tr
+            th Date
+            th Headers
+            th Other
+        each user in userdata
+            tr
+                td= user.date
+                td= user.headers['x-forwarded-for']
+                td= JSON.stringify(user['headers'])
+    script.
+        
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+
+            //- li= JSON.stringify(val['headers']['host'])
