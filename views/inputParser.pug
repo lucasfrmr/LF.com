@@ -33,7 +33,8 @@ block content
         script.
             function formParser(){
                 var inputString = document.getElementById("input").value;
-                const inputArray = inputString.split(" x")
+                console.log(inputString.replace( /\s/g, ''));
+                const inputArray = inputString.split("x")
 
                 for(var i = 0; i < inputArray.length; i++){
                     console.log(inputArray[i]);
