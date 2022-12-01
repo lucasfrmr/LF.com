@@ -5,6 +5,7 @@ const axios = require('axios');
 const cheerio = require("cheerio");
 const res = require('express/lib/response');
 const bodyParser = require("body-parser");
+const serveIndex = require('serve-index')
 
 const app = express()
 
@@ -14,7 +15,9 @@ app.set('view engine', 'pug')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+app.use('/files', serveIndex(__dirname + '/public/files', {'icons': true}))
 app.locals.pretty = true
+
 app.disable('x-powered-by')
 
 const MongoClient = require('mongodb').MongoClient
