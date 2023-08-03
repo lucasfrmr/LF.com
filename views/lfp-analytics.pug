@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		title LFP | Analytics
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer")
+		link(rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" integrity="sha512-BXI7AVpebJuMa1fHXyAAVMgPki/JF/IiXpIkWPX0+L4kCxCiZV8Fxkbk0+DdxuIzAg486Oij/MlW+b0q6A98aw==" crossorigin="anonymous" referrerpolicy="no-referrer")
+		link(rel='stylesheet' href='/css/style.css')
+	body.d-flex.flex-column.h-100
+		//- include includes/header
+		main
+			.container.d-flex.justify-content-center.py-2.opacity-75
+				.container
+					table.table.table-striped.table-hover.table-shadow
+						thead
+							tr
+								th(scope="col") Timestamp
+								th(scope="col") IP
+								th(scope="col") City
+								th(scope="col") State
+								th(scope="col") UserAgent
+								th(scope="col") Clicked Link
+						tbody
+							each item in database
+								tr
+									td= new Date(item._timestamp).toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'long', timeZone: 'CST6CDT' })
+									td.text-break
+										a(href=`https://ipinfo.io/${item.ipaddress}`, target="_blank") #{item.ipaddress}
+									td= item.city
+									td= item.state
+									td= JSON.parse(item.useragent).browser.name
+									td= item.clickedlink
+					script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+					script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" crossorigin="anonymous" referrerpolicy="no-referrer")
+					script(src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" integrity="sha512-ONQixi38lWHD4KDFx/xLD01RI31TOTJ1pTSOXPaYOQ+YCurDIklLP5SwweVTSM99P6hZdIQx85hSuY3n/Sl/IQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+					script(src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" integrity="sha512-KFdmxVdAssPxrj4mZh1c01AbGXMAmXmBsO4Tc/GG5+kNLqitTfUBpDHicyDwF7CaFV+pN1r808IOK+vHzWB8gw==" crossorigin="anonymous" referrerpolicy="no-referrer")
+					script.
+						$(document).ready(function() {
+							$('.table').DataTable({
+								pageLength: 50,
+								ordering : true
+							});
+						});

@@ -7,50 +7,9 @@ body.Site {
   -o-background-size: cover;
   background-size: cover;
 }
-/*body:hover {
-	background: url("img/djxvz6r.jpg") no-repeat fixed;
-	transform: scale(1.02);
-	transition: all 10s;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-/*.parent:hover .child,
-.parent:focus .child {
-  transform: scale(1.2);
-}*/
-/*.Site {
-	z-index: -1;
-	background: url("/img/djxvz6r.jpg") no-repeat fixed;
-	transform: scale(1);
-	transition: all 10s;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-/*.Site:before {
-	background: url("/img/lf_bg_lower.png") no-repeat fixed,  url("/img/lf_bg_lower.png") no-repeat fixed;
-	z-index: 1;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-/*.Site:hover {
-	background: url("/img/lf_bg_uper.jpg") no-repeat fixed;
-	z-index: -5;
-	transform: scale(1.02);
-	transition: all 10s;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-
-
-
+.table-shadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 .ui.modal {
   top: 25% !important;
   right: 25% !important;
@@ -95,9 +54,6 @@ h1 {
   font-size: 1.5vh;
   text-align: center;
   color: white;
-}
-.centered {
-  text-align: center;
 }
 #headerimg {
 	padding: 1em;

@@ -61,14 +61,12 @@ class TextScramble {
   // ——————————————————————————————————————————————————
   
   const phrases = [
-    'Neo,',
-    'sooner or later',
-    'you\'re going to realize',
-    'just as I did',
-    'that there\'s a difference',
-    'between knowing the path',
-    'and walking the path'
-  ]
+    'Created and maintained by ',
+    'Lucas Farmer',
+    'Copywrong &copy; 2023.',
+    'This web page is interactive.',
+    'Fuck around and find out!'
+    ]
   
   const el = document.querySelector('.text')
   const fx = new TextScramble(el)

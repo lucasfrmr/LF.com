@@ -6,6 +6,7 @@ links
     -insta
     -steam
     -discord
+    -soundcloud
 
 
 
@@ -18,3 +19,5 @@ links
     - scoreboard for highest score on game
     - footer font rems to be dynamic
     - rick roll
+    - reload new sketch onClick
+    - tanks

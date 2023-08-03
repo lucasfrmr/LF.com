@@ -20,7 +20,7 @@ html
 					| Sketches
 				a.item(href='https://game.lucasfarmer.com')
 					| Game
-				a.item(href='/bindornaw')
+				a.item(href='/p5')
 					i.large.link.inverted.barcode.icon
 				a.item(href='/about')
 					| About
@@ -33,12 +33,12 @@ html
 			block content
 		.ui.inverted.segment
 			footer.footer
-				.ui.container
+				.ui.container.text
 					| Created and maintained by 
 					a(href="https://lucasfarmer.com") Lucas Farmer 
-					| Copywrong &copy; 2022.
+					| Copywrong &copy; 2023.
 			script(src='/js/main.js')
-			//- script(src='/js/randomtext.js')
+			script(src='/js/randomtext.js')
 			//- script(src='/js/s98Zxcvb/etch.js')
 			//- script(src='/js/vehicle.js')
 			script(src='https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js')
@@ -54,3 +54,10 @@ html
 						}).modal('show');
 						});
 					});
+			//  Google tag (gtag.js) 
+			script(async, src="https://www.googletagmanager.com/gtag/js?id=G-8MZPXK9GP3")
+			script.
+				window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', 'G-8MZPXK9GP3');

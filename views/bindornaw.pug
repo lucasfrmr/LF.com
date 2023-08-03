@@ -48,7 +48,7 @@ block content
 					.description
 						p
 						.ui.huge.ahorizontal.statistic
-							.text.value.centered#girth(value="")
+							.value.centered#girth(value="")
 							| 
 						.label.large
 							| Girth
@@ -58,7 +58,7 @@ block content
 					.description
 						p
 						.ui.huge.ahorizontal.statistic
-							.text.value.centered(value="")
+							.value.centered(value="")
 							| 
 						.label.large
 							| 
@@ -149,7 +149,7 @@ block content
 						if (document.getElementById("radio1").checked){
 							var url = "https://www.amazon.com/dp/" + input;
 						}else{
-							var url = "http://fcresearch-na.aka.amazon.com/SAT6/results?s=" + input;
+							var url = "#" + input;
 						}
 						window.open(url);
 						//- frame.src=url
